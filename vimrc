@@ -1,1 +1,2 @@
-../.vimrc
+:syn on
+:set number
