@@ -23,3 +23,8 @@
   (expand-file-name "~/.emacs.d/tron-theme-11"))
 (require 'tron-theme)
 
+
+(setq inferior-lisp-program "/opt/local/bin/sbcl") ; from ports
+(add-to-list 'load-path "~/prog/clisp/slime/")     ; from github: nablaone/slime
+(require 'slime)
+(slime-setup '(slime-fancy))
