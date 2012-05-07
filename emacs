@@ -13,6 +13,7 @@
 
 (setq visible-bell t)
 (setq make-backup-files nil)
+(setq exec-path (cons "/opt/local/bin" exec-path))
 
 (package-initialize)
 
