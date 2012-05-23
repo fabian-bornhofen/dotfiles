@@ -65,3 +65,7 @@ export PYTHONPATH=$PYTHONPATH:/Library/Python/2.7/site-packages
 #export NODE_PATH="/usr/local/lib/node"
 
 . ~/.nvm/nvm.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+source /Users/fb/.rvm/scripts/rvm
