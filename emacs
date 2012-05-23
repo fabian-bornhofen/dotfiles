@@ -11,21 +11,27 @@
   ;; If there is more than one, they won't work right.
  )
 
+(setq fb-enable-slime t) ;; either SLIME works well or Clojure works well
+
 (setq visible-bell t)
 (setq make-backup-files nil)
 (setq exec-path (cons "/opt/local/bin" exec-path))
 
 (package-initialize)
 
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
+                          ("gnu" . "http://elpa.gnu.org/packages/")
+                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 
 (add-to-list 'load-path
   (expand-file-name "~/.emacs.d/tron-theme-11"))
 (require 'tron-theme)
 
-
-(setq inferior-lisp-program "/opt/local/bin/sbcl") ; from ports
-(add-to-list 'load-path "~/prog/clisp/slime/")     ; from github: nablaone/slime
-(require 'slime)
-(slime-setup '(slime-fancy))
+(if fb-enable-slime
+  (progn 
+    (setq inferior-lisp-program "/opt/local/bin/sbcl") ; from ports
+    (add-to-list 'load-path "~/prog/clisp/slime/")     ; from github: nablaone/slime
+    (require 'slime)
+    (slime-setup '(slime-fancy))))
