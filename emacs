@@ -11,11 +11,12 @@
   ;; If there is more than one, they won't work right.
  )
 
-(setq fb-enable-slime t) ;; either SLIME works well or Clojure works well
+(setq fb-enable-slime nil) ;; either SLIME works well or Clojure works well
 
 (setq visible-bell t)
 (setq make-backup-files nil)
 (setq exec-path (cons "/opt/local/bin" exec-path))
+(setq sbcl-path "/opt/local/bin/sbcl") ; ports
 
 (package-initialize)
 
@@ -31,7 +32,7 @@
 
 (if fb-enable-slime
   (progn 
-    (setq inferior-lisp-program "/opt/local/bin/sbcl") ; from ports
-    (add-to-list 'load-path "~/prog/clisp/slime/")     ; from github: nablaone/slime
+    (setq inferior-lisp-program sbcl-path)
+    (add-to-list 'load-path "~/.emacs.d/slime/")     ; from github: nablaone/slime
     (require 'slime)
     (slime-setup '(slime-fancy))))
