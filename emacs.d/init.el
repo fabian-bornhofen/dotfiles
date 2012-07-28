@@ -13,6 +13,7 @@
 
 (setq fb-enable-slime nil) ;; either SLIME works well or Clojure works well
 
+(setq column-number-mode t)
 (setq visible-bell t)
 (setq make-backup-files nil)
 (setq exec-path (cons "/opt/local/bin" exec-path))
